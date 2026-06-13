@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional
 
 class QueryRequest(BaseModel):
     question: str = Field(..., description="The Python programming question to ask.")
@@ -16,4 +16,3 @@ class HealthResponse(BaseModel):
     status: str
     model_loaded: bool
     vectorstore_loaded: bool
-    database_connected: bool

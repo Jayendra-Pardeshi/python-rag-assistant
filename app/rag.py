@@ -1,4 +1,4 @@
-from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from app.config import settings
@@ -8,12 +8,7 @@ from app.retriever import RetrieverService
 class RAGService:
     def __init__(self):
         self.retriever_service = RetrieverService()
-        # Initialize Groq LLM
-        self.llm = ChatGroq(
-            model=settings.llm_model, 
-            temperature=0,
-            api_key=settings.groq_api_key
-        )
+        self.llm = ChatOpenAI(model=settings.llm_model, temperature=0)
         self.chain = self._create_chain()
 
     def _create_chain(self):
@@ -29,7 +24,7 @@ class RAGService:
 
     def query(self, question: str):
         """
-        Executes the RAG pipeline using Groq.
+        Executes the RAG pipeline.
         """
         response = self.chain.invoke({"input": question})
         

@@ -1,6 +1,10 @@
 from langchain_core.prompts import ChatPromptTemplate
 
 def get_qa_prompt():
+    """
+    Returns the system prompt for the Python Tutor.
+    Designed to enforce groundedness and helpfulness.
+    """
     system_prompt = (
         "You are an expert Python Programming Tutor. Your goal is to help learners "
         "solve coding problems using the provided context from Stack Overflow.\n"

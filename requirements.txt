@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+langchain
+langchain-community
+langchain-openai
+sentence-transformers
+faiss-cpu
+python-dotenv
+pandas
+numpy
+beautifulsoup4
+requests
+pytest
+httpx
+pydantic-settings
